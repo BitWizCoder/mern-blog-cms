@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get("/", getArticles);
 router.post("/", setArticle);
-router.put("/", updateArticle);
-router.delete("/", deleteArticle);
+router.put("/:id", updateArticle);
+router.delete("/:id", deleteArticle);
 
 module.exports = router;

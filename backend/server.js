@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 const port = process.env.PORT || 5000;
 
 const articleRoutes = require("./routes/articleRoutes");
+const { errorHandler } = require("./middleware/errorMiddleware");
 
 connectDB();
 
@@ -18,5 +19,7 @@ app.use(
 );
 
 app.use("/api/articles", articleRoutes);
+
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server started on ${port}`));

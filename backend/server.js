@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 const port = process.env.PORT || 5000;
 
 const articleRoutes = require("./routes/articleRoutes");
+const userRoutes = require("./routes/userRoutes");
 const { errorHandler } = require("./middleware/errorMiddleware");
 
 connectDB();
@@ -19,6 +20,7 @@ app.use(
 );
 
 app.use("/api/articles", articleRoutes);
+app.use("/api/users", userRoutes);
 
 app.use(errorHandler);
 
